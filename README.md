@@ -1,10 +1,36 @@
-# AllWeave · 万象成序
+<p align="center">
+  <img src="brand/assets/banner.png" width="640" alt="AllWeave 万象成序 — 一念成潮，万象成序">
+</p>
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+<p align="center">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache%202.0-002fa7"></a>
+  <img alt="Node" src="https://img.shields.io/badge/node-%3E%3D22.19.0-002fa7">
+  <img alt="React" src="https://img.shields.io/badge/react-19-002fa7">
+  <img alt="TypeScript" src="https://img.shields.io/badge/typescript-6-002fa7">
+  <img alt="Pi Runtime" src="https://img.shields.io/badge/pi--runtime-1.1.0-6b7280">
+</p>
 
-> 一念成潮，万象成序。让智能形成组织，让协作突破边界。
+<p align="center"><sub>让智能形成组织，让协作突破边界</sub></p>
+
+---
 
 一个以 Web 应用方式实现的 **AI 虚拟项目团队**：把项目经理、成员 Agent、会议、计划、任务与交付验收放进同一条可追溯的流水线。React + Vite 前端通过同源代理连接本机 Pi Runtime，项目、任务与交付物落盘在真实目录中，并以 Git commit 与 `v0.x` 标签留痕。
+
+## 品牌体系
+
+标识由两条交缠的编织丝带构成无限符号，取「万物流转、协作成序」之意。三种功能变体对应产品的三条主线：
+
+<p align="center">
+  <img src="brand/assets/identity-variants.png" width="720" alt="AllWeave 标识体系：Write 言序、Build 构序、Team 共序">
+</p>
+
+| 变体 | 名称 | 对应能力 |
+| --- | --- | --- |
+| <img src="brand/assets/identity-write.png" width="56" alt="Write"> | **Write 言序** | 会议纪要、计划文本、交付文案的生成与评审 |
+| <img src="brand/assets/identity-build.png" width="56" alt="Build"> | **Build 构序** | 项目初始化、目录骨架、版本与交付产物的构建 |
+| <img src="brand/assets/identity-team.png" width="56" alt="Team"> | **Team 共序** | Agent 编组、跨角色消息通信与权限边界 |
+
+品牌资产位于 [`brand/`](brand/)，由 [`brand/extract_assets.py`](brand/extract_assets.py) 从设计原稿裁切生成；裁剪框由 [`brand/analyze_source.py`](brand/analyze_source.py) 的内容投影测得，非手工试错。
 
 ---
 
@@ -98,6 +124,8 @@ ai-agent-team/
 │       ├── src/                # App、client 适配层、组件与主题
 │       ├── scripts/            # dev-service.ps1、dev.mjs 及其测试
 │       └── public/             # AllWeave 品牌图形
+├── brand/                      # 品牌资产与裁切脚本
+│   └── assets/                 # 标识、字标、三变体、应用图标
 ├── vendor/
 │   ├── README.md               # 第三方组件说明
 │   └── pi-main/                # Pi Coding Agent 上游源码（MIT，14 个 packages）
@@ -108,12 +136,12 @@ ai-agent-team/
 
 ## 当前能力
 
-- **Agent 协作通信**：同组成员可查询成员、发送协作消息、读写收件箱。消息落本机 Runtime 数据库；接收方在运行时读取，不会因收到消息而自动调用模型。跨组、跨项目通信一律拒绝，项目经理无例外。
+- **Agent 协作通信**（Team 共序）：同组成员可查询成员、发送协作消息、读写收件箱。消息落本机 Runtime 数据库；接收方在运行时读取，不会因收到消息而自动调用模型。跨组、跨项目通信一律拒绝，项目经理无例外。
 - **工作空间与版本控制**：项目、团队、会议、任务、设置、交付数据保存在本机 JSON 工作空间，版本号防止旧快照覆盖。审批、任务、审核、归档与验收由 Runtime 命令校验。
 - **模型与凭证**：Runtime 提供供应商目录、模型设置与凭证授权；会议回复、计划生成、任务文本生成均使用所选 Pi 模型。凭证不进入页面状态或浏览器缓存。
 - **计划 → 任务 → 交付闭环**：计划经人工批准后由 Runtime 校验版本并创建待分配任务；生成的交付文本进入待审核，审核、返工与本地版本验收均由 Runtime 状态命令持久化。
-- **真实项目目录**：创建项目时选择目录并初始化独立 Git 仓库；任务产物、会议纪要与上传文件按角色写入对应目录。发布交付版本时创建 commit、`v0.x` 标签与交付清单。
-- **WPS Office 集成**：内置 WPS Office MCP 要求与运行时桥接，用于办公文档处理。
+- **真实项目目录**（Build 构序）：创建项目时选择目录并初始化独立 Git 仓库；任务产物、会议纪要与上传文件按角色写入对应目录。发布交付版本时创建 commit、`v0.x` 标签与交付清单。
+- **会议与文档**（Write 言序）：内置 WPS Office MCP 桥接与会议附件抽取，用于办公文档处理。
 
 ## 已知限制
 
@@ -184,7 +212,7 @@ npm run pack:packages      # 产出 .artifacts/*.tgz
 
 ## License
 
-AllWeave 自研部分（`apps/`、`docs/`、`vendor/README.md` 及根目录配置）基于 [Apache License 2.0](LICENSE) 开源，版权归 Litind 所有。使用、修改或分发时请保留许可证文件及版权声明。
+AllWeave 自研部分（`apps/`、`brand/`、`docs/` 及根目录配置）基于 [Apache License 2.0](LICENSE) 开源，版权归 Litind 所有。使用、修改或分发时请保留许可证文件及版权声明。
 
 `vendor/` 下为第三方上游源码，适用其各自的许可证：
 
