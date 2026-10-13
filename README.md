@@ -1,5 +1,7 @@
 # AllWeave · 万象成序
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
 > 一念成潮，万象成序。让智能形成组织，让协作突破边界。
 
 一个以 Web 应用方式实现的 **AI 虚拟项目团队**：把项目经理、成员 Agent、会议、计划、任务与交付验收放进同一条可追溯的流水线。React + Vite 前端通过同源代理连接本机 Pi Runtime，项目、任务与交付物落盘在真实目录中，并以 Git commit 与 `v0.x` 标签留痕。
@@ -171,4 +173,5 @@ npm test
 
 ## License
 
-仓库暂未附带开源许可文件。所有权利保留。
+本项目基于 [Apache License 2.0](LICENSE) 开源，版权归 Litind 所有。
+使用、修改或分发本项目时，请保留许可证文件及版权声明。
