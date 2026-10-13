@@ -4,8 +4,10 @@ node_modules/
 *.tgz
 
 # 构建产物与缓存
+# dist/ 与 build/ 保持通用规则：上游 pi-main 自身不提交 dist/，但会提交示例里的
+# packages/coding-agent/examples/**/build/（预编译 wasm），因此不能在 vendor 下豁免 dist。
 dist/
-build/
+/build/
 .vite/
 *.tsbuildinfo
 
@@ -24,7 +26,8 @@ npm-debug.log*
 !.env.example
 
 # Pi SDK / WPS MCP 的本机配置与缓存
-.pi/
+# 仅限仓库根目录：vendor/pi-main/.pi/ 是上游源码（extensions/prompts/skills），必须入库
+/.pi/
 __pycache__/
 *.py[cod]
 .venv/

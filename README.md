@@ -39,7 +39,7 @@
 | --- | --- |
 | 前端 | React 19 · TypeScript 6 · Vite 8 · `@vitejs/plugin-react` |
 | 运行时 | Node.js `>=22.19.0` · ESM · `node:test` |
-| 运行时依赖 | `@earendil-works/pi-*`（Pi Coding Agent SDK，见 [依赖前提](#依赖前提)） |
+| 运行时依赖 | `@earendil-works/pi-*`（Pi Coding Agent SDK 1.1.0，源码已入库 `vendor/pi-main/`，见 [依赖前提](#依赖前提)） |
 | 辅助能力 | Python（会议附件抽取、WPS Office MCP） |
 | 服务托管 | PowerShell + Node 后台进程脚本（仅 Windows） |
 
@@ -98,6 +98,9 @@ ai-agent-team/
 │       ├── src/                # App、client 适配层、组件与主题
 │       ├── scripts/            # dev-service.ps1、dev.mjs 及其测试
 │       └── public/             # AllWeave 品牌图形
+├── vendor/
+│   ├── README.md               # 第三方组件说明
+│   └── pi-main/                # Pi Coding Agent 上游源码（MIT，14 个 packages）
 └── docs/                       # 契约、实施记录、审计与设计文档
 ```
 
@@ -138,22 +141,29 @@ npm test
 
 ## 依赖前提
 
-> ⚠️ **克隆本仓库后 `apps/local-runtime` 无法直接 `npm install`。**
+> ⚠️ **克隆本仓库后 `apps/local-runtime` 仍无法直接 `npm install`。**
 
-`apps/local-runtime/package.json` 的 `dependencies` 与 `overrides` 指向**工作区外的本地 tarball**：
+`apps/local-runtime/package.json` 的 `dependencies` 与 `overrides` 指向**仓库外的本地 tarball**：
 
 ```json
 "@earendil-works/pi-coding-agent": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-coding-agent-1.1.0-f3c540e1b9ac.tgz"
 ```
 
-该路径指向 Pi 源码快照的构建产物，不随本仓库分发。拉取代码后需要：
+该路径指向 Pi 源码快照的打包产物，不随本仓库分发。拉取代码后需要：
 
-1. 准备 `pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/` 下的 13 个 `@earendil-works/*` tarball，或
-2. 将上述 `file:` 依赖替换为 npm 上的可用版本。
+1. 用 `vendor/pi-main/` 的源码本地打包，产出 13 个 `@earendil-works/*` tarball 并放到上述路径，或
+2. 将这些 `file:` 依赖替换为 npm 上的 `@earendil-works/pi-coding-agent@1.1.0`。
 
-`apps/web-prototype` 的依赖全部来自公共 registry，可直接安装。
+```powershell
+# 方式一：从入库源码打包
+cd vendor/pi-main
+npm install
+npm run pack:packages      # 产出 .artifacts/*.tgz
+```
 
-源码基线与校验信息见 [`docs/pi-runtime-validation.md`](docs/pi-runtime-validation.md) 与 [`docs/p0/pi-source-baseline.json`](docs/p0/pi-source-baseline.json)。
+`apps/web-prototype` 的依赖全部来自公共 registry，可直接 `npm install`。
+
+**Pi SDK 源码已完整入库**（`vendor/pi-main/`，MIT 许可，14 个 packages，约 23.3 MB），详见 [`vendor/README.md`](vendor/README.md)。源码基线与校验信息见 [`docs/pi-runtime-validation.md`](docs/pi-runtime-validation.md) 与 [`docs/p0/pi-source-baseline.json`](docs/p0/pi-source-baseline.json)。
 
 ---
 
@@ -168,10 +178,18 @@ npm test
 | [`docs/pi-runtime-validation.md`](docs/pi-runtime-validation.md) | Pi Runtime 技术验证记录 |
 | [`docs/workspace-path-safety-design.md`](docs/workspace-path-safety-design.md) | 本机项目路径安全的句柄式文件系统方案 |
 | [`AGENTS.md`](AGENTS.md) | 启动本机服务的操作约定（供 AI 助手遵守） |
+| [`vendor/README.md`](vendor/README.md) | 第三方 vendored 组件的来源、版本与许可说明 |
 
 ---
 
 ## License
 
-本项目基于 [Apache License 2.0](LICENSE) 开源，版权归 Litind 所有。
-使用、修改或分发本项目时，请保留许可证文件及版权声明。
+AllWeave 自研部分（`apps/`、`docs/`、`vendor/README.md` 及根目录配置）基于 [Apache License 2.0](LICENSE) 开源，版权归 Litind 所有。使用、修改或分发时请保留许可证文件及版权声明。
+
+`vendor/` 下为第三方上游源码，适用其各自的许可证：
+
+| 组件 | 许可证 | 版权 | 文件 |
+| --- | --- | --- | --- |
+| Pi Coding Agent | MIT | Copyright (c) 2025 Mario Zechner | [`vendor/pi-main/LICENSE`](vendor/pi-main/LICENSE) |
+
+第三方代码保留原始版权声明与许可文本，不受本仓库 Apache-2.0 覆盖。
