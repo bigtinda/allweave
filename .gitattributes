@@ -1,0 +1,15 @@
+# 统一以 LF 存储与检出，避免 Windows/macOS/Linux 之间产生无意义 diff
+* text=auto eol=lf
+
+# 二进制资源不做行尾转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary
+*.tgz binary
+*.zip binary

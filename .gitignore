@@ -1,0 +1,38 @@
+# 依赖
+node_modules/
+.npm/
+*.tgz
+
+# 构建产物与缓存
+dist/
+build/
+.vite/
+*.tsbuildinfo
+
+# 本机运行时状态、日志与进程记录
+.dev-runtime/
+*.log
+npm-debug.log*
+
+# 测试过程产生的临时工作区（egress 集成测试、工作区客户端测试）
+.egress-api-test-*/
+.workspace-client-test-*/
+
+# 本机凭证与环境变量（严禁提交）
+.env
+.env.*
+!.env.example
+
+# Pi SDK / WPS MCP 的本机配置与缓存
+.pi/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器与操作系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

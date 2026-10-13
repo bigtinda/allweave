@@ -1,0 +1,33 @@
+{
+  "name": "@ai-agent-team/local-runtime",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "baseline:pi": "node scripts/record-pi-source-baseline.mjs",
+    "smoke:provider-guard": "node scripts/smoke-provider-guard.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-coding-agent-1.1.0-f3c540e1b9ac.tgz",
+    "@earendil-works/pi-ai": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-ai-1.1.0-a35d4fe44972.tgz"
+  },
+  "overrides": {
+    "@earendil-works/chord": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-chord-1.1.0-82c1f329fc90.tgz",
+    "@earendil-works/pi-agent-core": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-agent-core-1.1.0-697d4a66898d.tgz",
+    "@earendil-works/pi-ai": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-ai-1.1.0-a35d4fe44972.tgz",
+    "@earendil-works/pi-client": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-client-1.1.0-a3df5f2fd127.tgz",
+    "@earendil-works/pi-codemode": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-codemode-1.1.0-f00b1cd80ce1.tgz",
+    "@earendil-works/pi-coding-agent": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-coding-agent-1.1.0-f3c540e1b9ac.tgz",
+    "@earendil-works/pi-durable": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-durable-1.1.0-936154082b66.tgz",
+    "@earendil-works/pi-env": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-env-1.1.0-8984adaeacf4.tgz",
+    "@earendil-works/pi-mcp": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-mcp-1.1.0-fa00ccb77632.tgz",
+    "@earendil-works/pi-protocol": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-protocol-1.1.0-5cc6483897aa.tgz",
+    "@earendil-works/pi-server": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-server-1.1.0-c5eb9cd2ca84.tgz",
+    "@earendil-works/pi-telemetry": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-telemetry-1.1.0-f2000ad39ff6.tgz",
+    "@earendil-works/pi-tui": "file:./../../../pi-main/.artifacts/pi-packages-taskfix-v2-20261012/tarballs/earendil-works-pi-tui-1.1.0-fd992690e120.tgz"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "formatVersion": 1,
+  "createdAt": "2026-10-12T05:50:15.490Z",
+  "generatedBy": {
+    "node": "v26.7.0"
+  },
+  "source": {
+    "pathFromWorkspace": "pi-main",
+    "gitMetadata": "unavailable",
+    "repository": "git+https://github.com/earendil-works/pi.git",
+    "rootPackage": {
+      "name": "pi-monorepo",
+      "version": "0.0.3"
+    },
+    "adapterPackage": {
+      "name": "@earendil-works/pi-coding-agent",
+      "version": "1.1.0"
+    },
+    "nodeEngine": ">=22.19.0",
+    "packageCount": 14,
+    "packages": [
+      {
+        "name": "@earendil-works/chord",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-agent-core",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-ai",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-client",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-codemode",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-coding-agent",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-durable",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-env",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-evals",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-mcp",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-protocol",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-server",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-telemetry",
+        "version": "1.1.0"
+      },
+      {
+        "name": "@earendil-works/pi-tui",
+        "version": "1.1.0"
+      }
+    ],
+    "packageLockSha256": "6bc1ddf5724037d06ff386b83747776f9606c8516665ec90b743469bf709f3df",
+    "treeHash": {
+      "algorithm": "sha256(path + NUL + file bytes + NUL for each relative path in sorted order)",
+      "fileCount": 2031,
+      "sha256": "0323e0e4825d4c93492b716e86591649a2b05cd067a7961083cb8ce1946b7f38",
+      "totalBytes": 25411564
+    }
+  }
+}
