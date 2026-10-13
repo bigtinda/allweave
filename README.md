@@ -26,11 +26,11 @@
 
 | 变体 | 名称 | 对应能力 |
 | --- | --- | --- |
-| <img src="brand/assets/identity-write.png" width="56" alt="Write"> | **Write 言序** | 会议纪要、计划文本、交付文案的生成与评审 |
-| <img src="brand/assets/identity-build.png" width="56" alt="Build"> | **Build 构序** | 项目初始化、目录骨架、版本与交付产物的构建 |
-| <img src="brand/assets/identity-team.png" width="56" alt="Team"> | **Team 共序** | Agent 编组、跨角色消息通信与权限边界 |
+| <img src="brand/assets/variant-write.png" width="76" alt="Write"> | **Write 言序** | 会议纪要、计划文本、交付文案的生成与评审 |
+| <img src="brand/assets/variant-build.png" width="76" alt="Build"> | **Build 构序** | 项目初始化、目录骨架、版本与交付产物的构建 |
+| <img src="brand/assets/variant-team.png" width="76" alt="Team"> | **Team 共序** | Agent 编组、跨角色消息通信与权限边界 |
 
-品牌资产位于 [`brand/`](brand/)，由 [`brand/extract_assets.py`](brand/extract_assets.py) 从设计原稿裁切生成；裁剪框由 [`brand/analyze_source.py`](brand/analyze_source.py) 的内容投影测得，非手工试错。
+品牌资产位于 [`brand/`](brand/)，由 [`brand/extract_assets.py`](brand/extract_assets.py) 从设计原稿裁切生成；裁剪框由 [`brand/analyze_source.py`](brand/analyze_source.py) 的内容投影测得，非手工试错。`identity-*.png` 为完整变体，`variant-*.png` 为其中仅含标识图形的部分，供表格行内使用。
 
 ---
 

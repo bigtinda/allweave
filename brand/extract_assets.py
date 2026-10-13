@@ -31,6 +31,14 @@ MUTED = (107, 114, 128)
 CANVAS = (247, 248, 250)
 BORDER = (229, 231, 235)
 
+# 变体图中「标识图形」所在行带（由 alpha 通道行投影测得，见 analyze_source.py 方法），
+# 用于表格行内的小图标——整幅变体缩到 56px 后文字不可读，仅取图形部分。
+VARIANT_MARK_BOX = {
+    "write": (5, 10, 262, 127),
+    "build": (5, 13, 276, 123),
+    "team": (4, 8, 268, 128),
+}
+
 
 def crop(src: Image.Image, box) -> Image.Image:
     return src.crop(box)
@@ -116,6 +124,13 @@ def main():
         img = knock_out(crop(src, box), bg)
         save(img, OUT / name)
         print(f"  {name:<22} {img.width}x{img.height} (transparent)")
+
+        # 变体标记：只保留标识图形，供 README 表格内的小图标使用
+        key = name.removeprefix("identity-").removesuffix(".png")
+        if key in VARIANT_MARK_BOX:
+            mark = img.crop(VARIANT_MARK_BOX[key])
+            save(mark, OUT / f"variant-{key}.png")
+            print(f"  variant-{key+'.png':<14} {mark.width}x{mark.height} (transparent)")
 
     tile = crop(src, BOX_TILE)
     save(tile, OUT / "app-tile.png")
